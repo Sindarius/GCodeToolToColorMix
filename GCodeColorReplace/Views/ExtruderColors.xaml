@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="GCodeColorReplace.Views.ExtruderColors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xceed="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             xmlns:local="clr-namespace:GCodeColorReplace.Views"
+             xmlns:viewModel="clr-namespace:GCodeColorReplace.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Extruder 0" HorizontalAlignment="Center"></Label>
+            <xceed:ColorPicker SelectedColor="{Binding Extruder0_Color}"></xceed:ColorPicker>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="Extruder 1" HorizontalAlignment="Center"></Label>
+            <xceed:ColorPicker SelectedColor="{Binding Extruder1_Color}"></xceed:ColorPicker>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <Label Content="Extruder 2" HorizontalAlignment="Center"></Label>
+            <xceed:ColorPicker SelectedColor="{Binding Extruder2_Color}"></xceed:ColorPicker>
+        </StackPanel>
+        <StackPanel Grid.Column="3">
+            <Label Content="Extruder 3" HorizontalAlignment="Center"></Label>
+            <xceed:ColorPicker SelectedColor="{Binding Extruder3_Color}"></xceed:ColorPicker>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
