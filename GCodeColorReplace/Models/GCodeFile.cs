@@ -41,11 +41,18 @@ namespace GCodeColorReplace.Models
                     var line = fileStream.ReadLine();
 
                     _fileLines.Add(line);
+
                     if (line.Trim().StartsWith(";"))
                     {
                         lineIndex++;
                         continue;
                     }
+
+                    if (line.Contains(';'))
+                    {
+                      line = line.Substring(0, line.IndexOf(';') - 1);
+                    }
+
 
                     var toolMatch = toolRegex.Match(line);
                     if (toolMatch.Success)
