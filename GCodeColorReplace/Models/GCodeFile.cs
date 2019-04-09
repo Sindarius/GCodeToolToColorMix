@@ -13,6 +13,7 @@ namespace GCodeColorReplace.Models
 
         private Regex toolRegex = new Regex("^T(?<Tool>[0-9]*)");
         private Regex tempRegex = new Regex("(?<TempCommand>(M104|M109)).*[sS](?<Temp>[0-9\\.]*).*[tT](?<Tool>[0-9]*)");
+        private Regex curaTempRegex = new Regex("(?<TempCommand>(M104|M109)).*[tT](?<Tool>[0-9\\.]*).*[sS](?<Temp>[0-9]*)");
         private string _filePath;
         private Dictionary<string, double> MaxToolTemp = new Dictionary<string, double>();
 
@@ -70,6 +71,12 @@ namespace GCodeColorReplace.Models
                     }
 
                     var tempMatch = tempRegex.Match(line);
+
+                    if (!tempMatch.Success)
+                    {
+                        tempMatch = curaTempRegex.Match(line);
+                    }
+
                     if (tempMatch.Success)
                     {
                         var tool = tempMatch.Groups["Tool"].Value;
@@ -92,7 +99,12 @@ namespace GCodeColorReplace.Models
                         //We'll change the tool to T0 and use the temp the tool is currently set to.
                         _fileLines[lineIndex] = $"{tempCommand} S{temp} T0";
                     }
-                    lineIndex++;
+         
+                    
+
+
+
+        lineIndex++;
                 }
             }
         }
