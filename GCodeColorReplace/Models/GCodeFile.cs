@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using GCodeColorReplace.Extensions;
 
 namespace GCodeColorReplace.Models
 {
@@ -107,6 +108,9 @@ namespace GCodeColorReplace.Models
         lineIndex++;
                 }
             }
+            Tools.Sort();
+            
+            
         }
 
 

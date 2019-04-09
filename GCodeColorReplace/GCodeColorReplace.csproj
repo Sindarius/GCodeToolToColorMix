@@ -76,6 +76,7 @@
     <Compile Include="Commands\OpenFileDialogCommand.cs" />
     <Compile Include="Commands\SaveFileCommand.cs" />
     <Compile Include="Converters\ColorToSolidColorBrushValueConverter.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtension.cs" />
     <Compile Include="Models\ExtrusionValue.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\ColorEditorVM.cs" />

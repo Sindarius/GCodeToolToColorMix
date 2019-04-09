@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace GCodeColorReplace.Models
 {
-    public class Tool : INotifyPropertyChanged
+    public class Tool : INotifyPropertyChanged, IComparable
     {
         public ObservableCollection<ExtrusionValue> ExtruderColorPercentages { get; set; }
         public string ToolName { get; set; }
@@ -107,6 +107,16 @@ namespace GCodeColorReplace.Models
         public override int GetHashCode()
         {
             return ToolName.GetHashCode();
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is Tool other)
+            {
+                return ToolName.CompareTo(other.ToolName);
+            }
+
+            return 0;
         }
 
         public override bool Equals(object obj)
